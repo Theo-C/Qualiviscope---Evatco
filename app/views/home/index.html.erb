@@ -1,0 +1,37 @@
+
+<div class="jumbotron bg-transparent text-center rounded-0 mb-5">
+    <h1>Mesurez votre qualité de vie</h1>
+    <p>
+    Vous souhaitez mesurer votre qualité de vie ?<br>
+    ATEV vous propose de faire le test en quelques minutes grâce au Qualiviscope.
+    </p>
+    <%= link_to 'Démarrer', '#secondContainer', class: 'btn btn-lg btn-dark rounded-pill' %>
+</div>
+
+<div id="secondContainer" class="mb-5">
+    <h1>Comment ça marche ?</h1>
+    <h5 class="mb-5">En quelques minutes, vous pouvez définir votre qualité de vie. 4 étapes sont nécessaires.</h5>
+
+    <div class="row">
+        <div class="col-md-4">
+            <%= image_tag "etape1.jpg", alt: "Etape 1", class: "img-fluid mb-5" %>
+            <h4>Étape 1 : Mes 5 éléments et leurs importances</h4>
+            <p>Définissez les 5 éléments essentiels pour votre bonheur et évaluez comment ces éléments influencent votre vie.</p>
+        </div>
+
+        <div class="col-md-4">
+            <%= image_tag "etape2.jpg", alt: "Etape 2", class: "img-fluid mb-5" %>
+            <h4>Étape 2 : Mon niveau de satisfaction</h4>
+            <p>Notez l'état de ces éléments dans votre vie actuelle.</p>
+        </div>
+
+        <div class="col-md-4">
+            <%= image_tag "etape3.jpg", alt: "Etape 3", class: "img-fluid mb-5" %>
+            <h4>Etape 3 : Mon score de qualité de vie</h4>
+            <p>Voilà grâce aux étapes précédentes vous obtenez votre Qualiviscore : votre score de qualité de vie sur 100 !</p>
+        </div>
+    </div>
+    <p class="text-center my-4">
+    <%= link_to 'J\'ai compris !', new_questionnaire_path, class: 'btn btn-lg btn-dark rounded-pill' %>
+    </p>
+</div>

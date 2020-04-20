@@ -1,0 +1,164 @@
+<%= simple_form_for(@evaluation) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+<div class="jumbotron bg-transparent text-center rounded-0 mb-5">
+        <div>
+            <h1>Étape 2 : Mon niveau de satisfaction.</h1>
+            <p>Grâce aux échelles ci dessous, notez votre niveau de satisfaction en ce moment pour chaque besoin.</p>
+            <p><strong>10</strong> correspond à “Très bien” <br>
+            <strong>5</strong> correspond à “J'estime cela moyen” <br>
+            <strong>0</strong> correspond à “Ça ne va pas du tout”</p>
+        </div>
+</div>
+
+        <%= f.association :questionnaire, as: :hidden %>
+    <div class="slider-verticaux">
+        <div class="row mb-5 flex-nowrap">
+            <div class="col-md-2">
+                <div class="range-slider-vertical">
+                    <span id="rs-bullet1" class="rs-label-vertical purple">5</span>
+                    <%= f.input :value1,
+                    label: false,
+                    input_html: { id:'rs-range-line1', class: 'rs-range-vertical purple', type: 'range', min: '0', max: '10', value: '5'}%>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="range-slider-vertical">
+                    <span id="rs-bullet2" class="rs-label-vertical pink">5</span>
+                    <%= f.input :value2,
+                    label: false,
+                    input_html: { id:'rs-range-line2', class: 'rs-range-vertical pink', type: 'range', min: '0', max: '10', value: '5'}%>
+                </div>
+
+            </div>
+
+            <div class="col-md-2">
+                <div class="range-slider-vertical">
+                    <span id="rs-bullet3" class="rs-label-vertical yellow">5</span>
+                    <%= f.input :value3,
+                    label: false,
+                    input_html: { id:'rs-range-line3', class: 'rs-range-vertical yellow', type: 'range', min: '0', max: '10', value: '5'}%>
+                </div>
+
+            </div>
+
+            <div class="col-md-2">
+                <div class="range-slider-vertical">
+                    <span id="rs-bullet4" class="rs-label-vertical green">5</span>
+                    <%= f.input :value4,
+                    label: false,
+                    input_html: { id:'rs-range-line4', class: 'rs-range-vertical green', type: 'range', min: '0', max: '10', value: '5'}%>
+                </div>
+
+            </div>
+
+            <div class="col-md-2">
+                <div class="range-slider-vertical">
+                    <span id="rs-bullet5" class="rs-label-vertical light-green">5</span>
+                    <%= f.input :value5,
+                    label: false,
+                    input_html: { id:'rs-range-line5', class: 'rs-range-vertical light-green', type: 'range', min: '0', max: '10', value: '5'}%>
+                </div>
+            </div>
+        </div>
+<br>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="text-wrap colored-div--purple">
+                    <p class="text-center text-white px-1 py-2"><%= @evaluation.questionnaire.question1 %></p>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="text-wrap colored-div--pink">
+                    <p class="text-center text-white px-1 py-2"><%= @evaluation.questionnaire.question2 %></p>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="text-wrap colored-div--yellow">
+                    <p class="text-center text-white px-1 py-2"><%= @evaluation.questionnaire.question3 %></p>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="text-wrap colored-div--green">
+                    <p class="text-center text-white px-1 py-2"><%= @evaluation.questionnaire.question4 %></p>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="text-wrap colored-div--light-green">
+                    <p class="text-center text-white px-1 py-2"><%= @evaluation.questionnaire.question5 %></p>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                    <%= f.button :submit, class: "btn btn-dark rounded-pill text-center p-2", value: "Voir mes résultats ➔" %>
+            </div>
+        </div>
+
+
+    </div>
+<% end %>
+
+<script type="text/javascript">
+  var rangeSlider1 = document.getElementById("rs-range-line1");
+  var rangeBullet1 = document.getElementById("rs-bullet1");
+
+  rangeSlider1.addEventListener("input", showSliderValue1, false);
+
+  function showSliderValue1() {
+    rangeBullet1.innerHTML = rangeSlider1.value;
+    var bulletPosition1 = (rangeSlider1.value /rangeSlider1.max);
+    rangeBullet1.style.left = (bulletPosition1 * 80) + "%";
+  }
+
+  var rangeSlider2 = document.getElementById("rs-range-line2");
+  var rangeBullet2 = document.getElementById("rs-bullet2");
+
+  rangeSlider2.addEventListener("input", showSliderValue2, false);
+
+  function showSliderValue2() {
+    rangeBullet2.innerHTML = rangeSlider2.value;
+    var bulletPosition2 = (rangeSlider2.value /rangeSlider2.max);
+    rangeBullet2.style.left = (bulletPosition2 * 80) + "%";
+  }
+
+  var rangeSlider3 = document.getElementById("rs-range-line3");
+  var rangeBullet3 = document.getElementById("rs-bullet3");
+
+  rangeSlider3.addEventListener("input", showSliderValue3, false);
+
+  function showSliderValue3() {
+    rangeBullet3.innerHTML = rangeSlider3.value;
+    var bulletPosition3 = (rangeSlider3.value /rangeSlider3.max);
+    rangeBullet3.style.left = (bulletPosition3 * 80) + "%";
+  }
+
+  var rangeSlider4 = document.getElementById("rs-range-line4");
+  var rangeBullet4 = document.getElementById("rs-bullet4");
+
+  rangeSlider4.addEventListener("input", showSliderValue4, false);
+
+  function showSliderValue4() {
+    rangeBullet4.innerHTML = rangeSlider4.value;
+    var bulletPosition4 = (rangeSlider4.value /rangeSlider4.max);
+    rangeBullet4.style.left = (bulletPosition4 * 80) + "%";
+  }
+
+  var rangeSlider5 = document.getElementById("rs-range-line5");
+  var rangeBullet5 = document.getElementById("rs-bullet5");
+
+  rangeSlider5.addEventListener("input", showSliderValue5, false);
+
+  function showSliderValue5() {
+    rangeBullet5.innerHTML = rangeSlider5.value;
+    var bulletPosition5 = (rangeSlider5.value /rangeSlider5.max);
+    rangeBullet5.style.left = (bulletPosition5 * 80) + "%";
+  }
+</script>
+
+
